@@ -19,7 +19,7 @@ public class RegularPolygon extends Polygon {
     protected final double radius;
     
     /**
-     * The lenght if a side
+     * The lenght of a side
      */
     protected final double side;
 
