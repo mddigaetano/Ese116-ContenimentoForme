@@ -1,11 +1,36 @@
+/**
+ * The class rapresents a general polygon;
+ * it can be both irregular or regular;
+ * don't use the last option because there's a proper class for it
+ * 
+ * @author Amedeo Di Gaetano
+ * @version 1.0, 23 Feb 2016
+ * @since 1.0
+ */
 public class Polygon implements Shape {
 
+    /**
+     * The number of sides of the polygon
+     */
     protected final int N_SIDES;
 
+    /**
+     * An array containing all the vertices of the polygon as Point objects
+     */
     protected final Point[] vertices;
 
+    /**
+     * The Bounding Box of the polygon
+     */
     protected final BoundingBox bb;
 
+    /**
+     * The method initialize the number of sides and vertices values.
+     * After that it find the minimum and the maximum coordinates and use them to istantiante the Bounding Box
+     * 
+     * @param nSides
+     * @param vertices 
+     */
     public Polygon(int nSides, Point[] vertices) {
         N_SIDES = nSides;
         this.vertices = vertices;
@@ -29,6 +54,11 @@ public class Polygon implements Shape {
         bb = new BoundingBox(new Point(xMin,yMin), new Point(xMax,yMax));
     }
 
+    /**
+     * The method compute the lenght of the perimeter and returns it
+     * 
+     * @return the perimeter of the polygon
+     */
     @Override
     public double getPerimeter() {
         double perimeter = 0;
@@ -41,6 +71,11 @@ public class Polygon implements Shape {
         return perimeter;
     }
     
+    /**
+     * The method return an array containing all the vertices
+     * 
+     * @return an array containing all the vertices
+     */
     public Point[] getVertices(){
         return vertices;
     }

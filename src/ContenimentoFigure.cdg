@@ -64,7 +64,7 @@
       </Constructors>
       <Methods/>
     </Class>
-    <Class name="Exagon" package="" visibility="public" xPosition="799.0" yPosition="567.0">
+    <Class name="Hexagon" package="" visibility="public" xPosition="799.0" yPosition="567.0">
       <Fields/>
       <Constructors>
         <Constructor visibility="public">
@@ -98,7 +98,7 @@
         </Constructor>
       </Constructors>
       <Methods>
-        <Method name="getVertices" returnType="Point[]" visibility="private" isStatic="true" isFinal="true">
+        <Method name="getVertices" returnType="double" visibility="private" isStatic="true" isFinal="true">
           <Argument type="int" name="nSides"/>
           <Argument type="Point" name="center"/>
           <Argument type="double" name="radius"/>
@@ -137,7 +137,7 @@
         </Constructor>
       </Constructors>
       <Methods>
-        <Method name="getVertices" returnType="Point[]" visibility="private" isStatic="true">
+        <Method name="getVertices" returnType="Point" visibility="private" isStatic="true">
           <Argument type="Point" name="tl"/>
           <Argument type="Point" name="br"/>
         </Method>
@@ -150,15 +150,16 @@
     </Interface>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <IsRelation name="is" source="Exagon" target="RegularPolygon"/>
-    <IsRelation name="is" source="Rectangle" target="Polygon"/>
-    <IsRelation name="is" source="RegularPolygon" target="Polygon"/>
-    <HasRelation name="vertices" source="Polygon" target="Point" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
     <IsRelation name="is" source="Pentagon" target="RegularPolygon"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Polygon" target="Shape"/>
-    <HasRelation name="bb" source="Polygon" target="BoundingBox" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <IsRelation name="is" source="Square" target="RegularPolygon"/>
+    <HasRelation name="bb" source="Circle" target="BoundingBox" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
     <IsRelation name="is" source="Triangle" target="RegularPolygon"/>
+    <HasRelation name="bb" source="Polygon" target="BoundingBox" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Rectangle" target="Polygon"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Polygon" target="Shape"/>
+    <IsRelation name="is" source="Hexagon" target="RegularPolygon"/>
     <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Circle" target="Shape"/>
+    <IsRelation name="is" source="Square" target="RegularPolygon"/>
+    <HasRelation name="vertices" source="Polygon" target="Point" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <IsRelation name="is" source="RegularPolygon" target="Polygon"/>
   </ClassDiagramRelations>
 </ClassDiagram>
