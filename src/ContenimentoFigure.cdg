@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ContenimentoFigure">
+  <ClassDiagramComponents>
+    <Class name="Polygon" package="" visibility="public" xPosition="765.0" yPosition="189.0">
+      <Fields>
+        <Field name="N_SIDES" type="int" visibility="protected" isFinal="true"/>
+        <Field name="vertices" type="Point[]" visibility="protected" isFinal="true"/>
+        <Field name="bb" type="BoundingBox" visibility="protected" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="nSides"/>
+          <Argument type="Point[]" name="vertices"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getVertices" returnType="Point[]" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Point" package="" visibility="public" xPosition="475.0" yPosition="180.0">
+      <Fields>
+        <Field name="x" type="double" visibility="private" isFinal="true"/>
+        <Field name="y" type="double" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="x"/>
+          <Argument type="double" name="y"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="distanceTo" returnType="Point" visibility="public">
+          <Argument type="Point" name="p"/>
+        </Method>
+        <Method name="getX" returnType="double" visibility="public"/>
+        <Method name="getY" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BoundingBox" package="" visibility="public" xPosition="1093.0" yPosition="218.0">
+      <Fields>
+        <Field name="topLeft" type="Point" visibility="private" isFinal="true"/>
+        <Field name="bottomRight" type="Point" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Point" name="tl"/>
+          <Argument type="Point" name="br"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="contains" returnType="BoundingBox" visibility="public">
+          <Argument type="BoundingBox" name="bb"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Square" package="" visibility="public" xPosition="297.0" yPosition="746.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Point" name="center"/>
+          <Argument type="double" name="radius"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Exagon" package="" visibility="public" xPosition="799.0" yPosition="567.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Point" name="center"/>
+          <Argument type="double" name="radius"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Pentagon" package="" visibility="public" xPosition="608.0" yPosition="746.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Point" name="center"/>
+          <Argument type="double" name="radius"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="RegularPolygon" package="" visibility="public" xPosition="371.0" yPosition="470.0">
+      <Fields>
+        <Field name="center" type="Point" visibility="protected" isFinal="true"/>
+        <Field name="radius" type="double" visibility="protected" isFinal="true"/>
+        <Field name="side" type="double" visibility="protected" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="nSides"/>
+          <Argument type="Point" name="center"/>
+          <Argument type="double" name="radius"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getVertices" returnType="Point[]" visibility="private" isStatic="true" isFinal="true">
+          <Argument type="int" name="nSides"/>
+          <Argument type="Point" name="center"/>
+          <Argument type="double" name="radius"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Circle" package="" visibility="public" xPosition="1142.0" yPosition="11.0">
+      <Fields>
+        <Field name="center" type="Point" visibility="private" isFinal="true"/>
+        <Field name="radius" type="double" visibility="private" isFinal="true"/>
+        <Field name="bb" type="BoundingBox" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getBB" returnType="BoundingBox" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Triangle" package="" visibility="public" xPosition="63.0" yPosition="567.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Point" name="center"/>
+          <Argument type="double" name="radius"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Rectangle" package="" visibility="public" xPosition="1065.0" yPosition="429.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Point" name="tl"/>
+          <Argument type="Point" name="br"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getVertices" returnType="Point[]" visibility="private" isStatic="true">
+          <Argument type="Point" name="tl"/>
+          <Argument type="Point" name="br"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="Shape" package="" visibility="public" xPosition="799.0" yPosition="55.0">
+      <Methods>
+        <Method name="getPerimeter" returnType="double" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Exagon" target="RegularPolygon"/>
+    <IsRelation name="is" source="Rectangle" target="Polygon"/>
+    <IsRelation name="is" source="RegularPolygon" target="Polygon"/>
+    <HasRelation name="vertices" source="Polygon" target="Point" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <IsRelation name="is" source="Pentagon" target="RegularPolygon"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Polygon" target="Shape"/>
+    <HasRelation name="bb" source="Polygon" target="BoundingBox" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Square" target="RegularPolygon"/>
+    <IsRelation name="is" source="Triangle" target="RegularPolygon"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Circle" target="Shape"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
