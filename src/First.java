@@ -28,9 +28,15 @@ public class First {
         Square square = new Square(new Point(8,8), 5);
         Point points[];
         Circle circle = new Circle(new Point(8,8), 4);
+        Triangle triangle = new Triangle(new Point(10,10), 5);
         
         points = square.getVertices();
         for(int i=0; i<square.N_SIDES; i++){
+           System.out.println((i+1)+"° vertex: "+ (points[i].getX()) +"  "+ (points[i].getY()) );
+        }
+        
+        points = triangle.getVertices();
+        for(int i=0; i<triangle.N_SIDES; i++){
            System.out.println((i+1)+"° vertex: "+ (points[i].getX()) +"  "+ (points[i].getY()) );
         }
         
